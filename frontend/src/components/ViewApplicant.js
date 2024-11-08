@@ -11,8 +11,8 @@ const ViewApplicant= () => {
   </thead>
   <tbody>
     <tr>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>Waleed Khan</td>
+      <td>SP21-BSE-006</td>
     </tr>
   </tbody>
 </table>
