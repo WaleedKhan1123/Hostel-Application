@@ -6,6 +6,10 @@ const AddApplicant = () => {
 
     
     }
+    function addDetails(){
+
+    
+    }
     return ( 
     <div className="col-md-6 position-absolute start-50 translate-middle-x mt-5">
     <form>
@@ -17,7 +21,7 @@ const AddApplicant = () => {
      Registration Number
     </label>
     <input type="text" className="form-control mb-3" name="studentName" onChange={(e)=>handleChange(e)}/>
-    <button className="btn btn-primary form-control">Apply</button>
+    <button className="btn btn-primary form-control" onChange={(e)=>addDetails(e)}>Apply</button>
     </form>    
     </div> );
 }
