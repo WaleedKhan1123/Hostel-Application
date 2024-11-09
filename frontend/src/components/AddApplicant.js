@@ -1,7 +1,11 @@
-
+import { useState } from "react";
 const AddApplicant = () => {
     
-    
+    const[appicantData,setApplicants]=useState({
+     studentName:"",
+     registranNumber:""
+    }
+    )
     function handleChange(){
 
     
