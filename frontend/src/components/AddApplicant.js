@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddApplicants } from "../Service/api";
 const AddApplicant = () => {
     
     const[applicantData,setApplicants]=useState({
@@ -14,8 +15,9 @@ const AddApplicant = () => {
          setApplicants({...applicantData,[e.target.name]: [e.target.value]})
     
     }
-    const addDetails = (e)=>{
-
+    const addDetails = async(e)=>{
+      e.preventDefault();
+      await AddApplicants(applicantData);
     
     }
     return ( 
