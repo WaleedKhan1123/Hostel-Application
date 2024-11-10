@@ -1,16 +1,20 @@
 import { useState } from "react";
 const AddApplicant = () => {
     
-    const[appicantData,setApplicants]=useState({
+    const[applicantData,setApplicants]=useState({
      studentName:"",
-     registranNumber:""
+     registrationNumber:""
     }
     )
-    function handleChange(){
 
+    const {studentName,registrationNumber} = applicantData;
+
+
+    const handleChange = (e) =>{
+         setApplicants({...applicantData,[e.target.name]: [e.target.value]})
     
     }
-    function addDetails(){
+    const addDetails = (e)=>{
 
     
     }
@@ -24,9 +28,12 @@ const AddApplicant = () => {
     <label className="mb-2">
      Registration Number
     </label>
-    <input type="text" className="form-control mb-3" name="studentName" onChange={(e)=>handleChange(e)}/>
+    <input type="text" className="form-control mb-3" name="registrationNumber" onChange={(e)=>handleChange(e)}/>
     <button className="btn btn-primary form-control" onChange={(e)=>addDetails(e)}>Apply</button>
-    </form>    
+    </form>  
+    {applicantData.studentName}
+    <br/>
+    {applicantData.registrationNumber}  
     </div> );
 }
  
