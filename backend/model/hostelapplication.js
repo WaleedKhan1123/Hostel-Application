@@ -4,4 +4,5 @@ const hostelApplicationStructure = mongoose.Schema({
     studentName:String,
     registrationNumber:String
 });
-const hostelApplicantModel
+const hostelApplicationModel = mongoose.model('hostelApplication',hostelApplicationStructure);
+export default hostelApplicationModel;

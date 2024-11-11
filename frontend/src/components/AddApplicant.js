@@ -17,7 +17,12 @@ const AddApplicant = () => {
     }
     const addDetails = async(e)=>{
       e.preventDefault();
+      
       await AddApplicants(applicantData);
+      setApplicants({
+        studentName: "",
+        registrationNumber: ""
+    });
     
     }
     return ( 
@@ -26,11 +31,11 @@ const AddApplicant = () => {
     <label className="mb-2">
      Student Name
     </label>
-    <input type="text" className="form-control mb-3" name="studentName" onChange={(e)=>handleChange(e)}/>
+    <input type="text" className="form-control mb-3" name="studentName" value={studentName} onChange={(e)=>handleChange(e)}/>
     <label className="mb-2">
      Registration Number
     </label>
-    <input type="text" className="form-control mb-3" name="registrationNumber" onChange={(e)=>handleChange(e)}/>
+    <input type="text" className="form-control mb-3" name="registrationNumber" value={registrationNumber} onChange={(e)=>handleChange(e)}/>
     <button className="btn btn-success form-control" onClick={(e)=>addDetails(e)}>Apply</button>
     </form>  
     {/* {applicantData.studentName}
