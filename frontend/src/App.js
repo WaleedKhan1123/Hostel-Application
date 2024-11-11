@@ -9,8 +9,8 @@ function App() {
       <h1 className="text-center">Hostel Application</h1>
      <Navbar/>
      <Routes>
-      <Route path="/"/>
-      <Route path="/hostelApplicants" element={<AddApplicant/>}/>
+      {/* <Route path="/"/> */}
+      <Route path="/" element={<AddApplicant/>}/>
       <Route path="/ViewApplicants" element={<ViewApplicant/>}/>
      </Routes>
     </div>
