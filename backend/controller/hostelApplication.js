@@ -23,3 +23,27 @@ try{
     console.log("not Saved...");
 }
 };
+
+
+// Delete Applicant
+export const deleteApplication = async (req, res) => {
+    try {
+      const { id } = req.params;
+      await hostelApplicationModel.findByIdAndDelete(id);
+      res.status(200).json({ message: "Application deleted successfully." });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
+  // Update Applicant
+  export const updateApplication = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const updatedData = req.body;
+      const updatedApplication = await hostelApplicationModel.findByIdAndUpdate(id, updatedData, { new: true });
+      res.status(200).json(updatedApplication);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };

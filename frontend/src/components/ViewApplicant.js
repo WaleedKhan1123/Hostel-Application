@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { GetApplicants } from "../Service/api";
+import { GetApplicants,DeleteApplicant,UpdateApplicant } from "../Service/api";
 
 const ViewApplicant= () => {
   const [appData,setAppData] = useState([]);
+  const [editId, setEditId] = useState(null);
+  const [editData, setEditData] = useState({ studentName: "", registrationNumber: "" });
   useEffect(()=>  {
     getData();
   },[]);
@@ -13,6 +15,24 @@ const ViewApplicant= () => {
     const result = await GetApplicants();
     setAppData(result.data);
   }
+  const handleDelete = async (id) => {
+    await DeleteApplicant(id);
+    getData(); // Refresh data after deletion
+  };
+  const handleEditClick = (details) => {
+    setEditId(details._id);
+    setEditData({ studentName: details.studentName, registrationNumber: details.registrationNumber });
+  };
+  const handleEditChange = (e) => {
+    setEditData({ ...editData, [e.target.name]: e.target.value });
+  };
+
+  const handleEditSubmit = async () => {
+    await UpdateApplicant(editId, editData);
+    setEditId(null);
+    getData(); // Refresh data after update
+  };
+
     return (
     <div className="col-md-6 position-absolute start-50 translate-middle-x mt-5">
    <table class="table">
@@ -25,15 +45,53 @@ const ViewApplicant= () => {
   </thead>
 
   <tbody>
-    {appData.map((details)=>(
-    <tr>
-      <td>{details.studentName}</td>
-      <td>{details.registrationNumber}</td>
-      <td><button className="btn btn-warning">Edit</button></td>
-      <td><button className="btn btn-danger">Delete</button></td>
-    </tr>
-))}
-  </tbody>
+          {appData.map((details) => (
+            <tr key={details._id}>
+              <td>
+                {editId === details._id ? (
+                  <input
+                    type="text"
+                    name="studentName"
+                    className="form-control"
+                    value={editData.studentName}
+                    onChange={handleEditChange}
+                  />
+                ) : (
+                  details.studentName
+                )}
+              </td>
+              <td>
+                {editId === details._id ? (
+                  <input
+                    type="text"
+                    name="registrationNumber"
+                    className="form-control"
+                    value={editData.registrationNumber}
+                    onChange={handleEditChange}
+                  />
+                ) : (
+                  details.registrationNumber
+                )}
+              </td>
+              <td>
+                {editId === details._id ? (
+                  <button className="btn btn-success" onClick={handleEditSubmit}>
+                    Save
+                  </button>
+                ) : (
+                  <>
+                    <button className="btn btn-warning" onClick={() => handleEditClick(details)}>
+                      Edit
+                    </button>
+                    <button className="btn btn-danger ms-4 " onClick={() => handleDelete(details._id)}>
+                      Delete
+                    </button>
+                  </>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
 </table>
 
     </div> );    
