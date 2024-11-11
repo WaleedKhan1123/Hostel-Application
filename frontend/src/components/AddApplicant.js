@@ -31,11 +31,11 @@ const AddApplicant = () => {
      Registration Number
     </label>
     <input type="text" className="form-control mb-3" name="registrationNumber" onChange={(e)=>handleChange(e)}/>
-    <button className="btn btn-primary form-control" onChange={(e)=>addDetails(e)}>Apply</button>
+    <button className="btn btn-success form-control" onClick={(e)=>addDetails(e)}>Apply</button>
     </form>  
-    {applicantData.studentName}
+    {/* {applicantData.studentName}
     <br/>
-    {applicantData.registrationNumber}  
+    {applicantData.registrationNumber}   */}
     </div> );
 }
  
