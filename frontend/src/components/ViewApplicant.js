@@ -17,7 +17,7 @@ const ViewApplicant= () => {
   }
   const handleDelete = async (id) => {
     await DeleteApplicant(id);
-    getData(); // Refresh data after deletion
+    getData(); 
   };
   const handleEditClick = (details) => {
     setEditId(details._id);
@@ -30,7 +30,7 @@ const ViewApplicant= () => {
   const handleEditSubmit = async () => {
     await UpdateApplicant(editId, editData);
     setEditId(null);
-    getData(); // Refresh data after update
+    getData(); 
   };
 
     return (

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/",getApplication)
 router.post("/",createApplication);
-router.delete("/:id", deleteApplication); // Route for delete
-router.put("/:id", updateApplication);    // Route for update
+router.delete("/:id", deleteApplication); 
+router.put("/:id", updateApplication);    
 
 export default router

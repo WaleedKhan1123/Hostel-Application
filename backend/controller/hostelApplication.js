@@ -8,6 +8,7 @@ try {
 }
 };
 
+
 export const createApplication = async (req,res) =>{
 const studentName = req.body.studentName.toString();
 const registrationNumber = req.body.registrationNumber.toString();
@@ -25,7 +26,7 @@ try{
 };
 
 
-// Delete Applicant
+
 export const deleteApplication = async (req, res) => {
     try {
       const { id } = req.params;
@@ -36,7 +37,7 @@ export const deleteApplication = async (req, res) => {
     }
   };
   
-  // Update Applicant
+  
   export const updateApplication = async (req, res) => {
     try {
       const { id } = req.params;
