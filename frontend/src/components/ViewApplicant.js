@@ -1,4 +1,18 @@
+import { useEffect, useState } from "react";
+import { GetApplicants } from "../Service/api";
+
 const ViewApplicant= () => {
+  const [appData,setAppData] = useState([]);
+  useEffect(()=>  {
+    getData();
+  },[]);
+
+
+  const getData= async ()=>{
+
+    const result = await GetApplicants();
+    setAppData(result.data);
+  }
     return (
     <div className="col-md-6 position-absolute start-50 translate-middle-x mt-5">
    <table class="table">
@@ -10,10 +24,12 @@ const ViewApplicant= () => {
     </tr>
   </thead>
   <tbody>
+    {appData.map((details)=>(
     <tr>
-      <td>Waleed Khan</td>
-      <td>SP21-BSE-006</td>
+      <td>{details.studentName}</td>
+      <td>{details.registrationNumber}</td>
     </tr>
+))}
   </tbody>
 </table>
 
