@@ -1,2 +1,3 @@
 # Hostel-Application
-This project is a Hostel Management Application designed to streamline and simplify the process of managing hostels
+This project is just a practice of crud operations using mern stack technology :)
+
