@@ -5,7 +5,7 @@ import express from "express";
 import hostelApp from "./routes/hostelApplication.js";
 const app = express();
 const url =
-  "mongodb+srv://.fjqdy.mongodb.net/Hostel?retryWrites=true&w=majority&appName=HostelApplicants";
+  "mongodb+srv://waleedkn270:waleedkh11@hostelapplicants.fjqdy.mongodb.net/Hostel?retryWrites=true&w=majority&appName=HostelApplicants";
 mongoose.connect(url).then(() => console.log("Connected to the database"));
 app.listen(5000);
 app.use(cors());

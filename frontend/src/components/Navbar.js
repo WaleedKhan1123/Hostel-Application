@@ -10,7 +10,7 @@ const Navbar = () => {
           to="/ViewApplicants"
           className="ms-5 me-5 text-decoration-none text-white"
         >
-          View Applications
+          View Application
         </Link>
       </div>
     </div>
