@@ -4,11 +4,12 @@ import mongoose from "mongoose";
 import express from "express";
 import hostelApp from "./routes/hostelApplication.js";
 const app = express();
-const url = ""
-mongoose.connect(url).then(()=> console.log("Connected to the database"));
+const url =
+  "mongodb+srv://waleedkn270:waleedkh11@hostelapplicants.fjqdy.mongodb.net/Hostel?retryWrites=true&w=majority&appName=HostelApplicants";
+mongoose.connect(url).then(() => console.log("Connected to the database"));
 app.listen(5000);
 app.use(cors());
-app.use(bodyParser.json({extended:true}));
-app.use(bodyParser.urlencoded({extended:true}));
-app.use("/hostelApplicants",hostelApp);
-app.use("/ViewApplicants",hostelApp);
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/hostelApplicants", hostelApp);
+app.use("/ViewApplicants", hostelApp);
